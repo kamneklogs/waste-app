@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Reciclamos_Master_Class {
 
+	private Scanner r;
 	private ArrayList<Residue> residues;
 	private ArrayList<Product> products;
 
@@ -11,14 +12,15 @@ public class Reciclamos_Master_Class {
 
 		residues = new ArrayList<Residue>();
 		products = new ArrayList<Product>();
+		r = new Scanner(System.in);
 
 	}
 
 	public void addResidue() {
-		Scanner r = new Scanner(System.in);
+
 		String id, name, color, description, tips;
 		int origin, wasteTime, opt = 0, type, typeResidue, aux = 1;
-		String idP, nameP, descriptionP;
+		String idP = null, nameP, descriptionP = "No especifica.";
 		boolean composting, auxB = false;
 		Product theProduct = null;
 
@@ -41,6 +43,7 @@ public class Reciclamos_Master_Class {
 				System.out.println(aux + ". " + s);
 				aux++;
 			}
+			r.reset();
 			origin = r.nextInt();
 			System.out.print("Tiempo de descomposicion (Numero de dias): ");
 			wasteTime = r.nextInt();
@@ -59,7 +62,7 @@ public class Reciclamos_Master_Class {
 					System.out.print("Nombre: ");
 					nameP = r.next();
 					System.out.print("Descripcion: ");
-					descriptionP = r.next();
+					descriptionP = r.nextLine();
 					theProduct = new Product(idP, nameP, descriptionP);
 				} else {
 					aux = 1;
@@ -79,7 +82,12 @@ public class Reciclamos_Master_Class {
 				System.out.print("Nombre: ");
 				nameP = r.next();
 				System.out.print("Descripcion: ");
-				descriptionP = r.next();
+				if (auxB) {
+					descriptionP = r.nextLine();
+				} else {
+					descriptionP = r.nextLine();
+				}
+				descriptionP = r.nextLine();
 				theProduct = new Product(idP, nameP, descriptionP);
 				break;
 			}
@@ -96,6 +104,12 @@ public class Reciclamos_Master_Class {
 
 				residues.add(new Biodegradable(id, name, origin, color, wasteTime, composting, theProduct));
 				products.add(theProduct);
+				for (int i = 0; i < products.size(); i++) {
+					if (products.get(i).getId().equals(idP)) {
+						products.get(i).getMyResidues()
+								.add(new Biodegradable(id, name, origin, color, wasteTime, composting, theProduct));
+					}
+				}
 				break;
 
 			case 2:
@@ -110,34 +124,44 @@ public class Reciclamos_Master_Class {
 				description = r.next();
 				residues.add(new Recyclable(id, name, origin, color, wasteTime, description, type, theProduct));
 				products.add(theProduct);
+				for (int i = 0; i < products.size(); i++) {
+					if (products.get(i).getId().equals(idP)) {
+						products.get(i).getMyResidues()
+								.add(new Recyclable(id, name, origin, color, wasteTime, description, type, theProduct));
+					}
+				}
 				break;
 
 			case 3:
-				System.out.print("Ingrese consejos breves para reducir el uso de este reisuo inerte: ");
+				System.out.print("Ingrese consejos breves para reducir el uso de este residuo inerte: ");
 				tips = r.next();
 				residues.add(new Inert(id, name, origin, color, wasteTime, tips, theProduct));
 				products.add(theProduct);
+				for (int i = 0; i < products.size(); i++) {
+					if (products.get(i).getId().equals(idP)) {
+						products.get(i).getMyResidues()
+								.add(new Inert(id, name, origin, color, wasteTime, tips, theProduct));
+					}
+				}
+				break;
 
 			}
 
 			System.out.println("RESIDUO AGREGADO EXITOSAMENTE");
 
-			System.out.println("\n\nDesea agregar un nuevo residuo?\n\n1. Si.\n2. No.\n\n");
+			System.out.println("\n\nDesea agregar un nuevo residuo?\n\n1. Si.\n2. No.");
 
 			opt = r.nextInt();
-			if (auxB) {
-				r.reset();
-			}
 			auxB = true;
 		} while (opt != 2);
 
 	}
 
 	public void reportResidues() {
-		String stringBio = "BIODEGRADABLES:\n";
-		String stringRec = "RECICLABLES:\n";
-		String stringIne = "INERTES:\n";
-		String superString = "\nLO SENTIMOS, AUN NO HAY REGISTROS DE RESIDUOS\n\n";
+		String stringBio = "||||||||| BIODEGRADABLES: |||||||||\n";
+		String stringRec = "||||||||| RECICLABLES: |||||||||\n";
+		String stringIne = "||||||||| INERTES: |||||||||\n";
+		String superString = "\n**** LO SENTIMOS, AUN NO HAY REGISTROS DE RESIDUOS ****\n\n";
 		int aux1 = 0;
 		int aux2 = 0;
 		int aux3 = 0;
@@ -149,21 +173,31 @@ public class Reciclamos_Master_Class {
 			for (Residue r : residues) {
 				if (r instanceof Biodegradable) {
 					c = (char) ('a' + aux1);
-					stringBio += c + ". " + r.toString();
+					stringBio += c + ". " + r.toString() + "\n";
 					aux1++;
 				}
 
 				if (r instanceof Recyclable) {
 					c = (char) ('a' + aux2);
-					stringRec += c + ". " + r.toString();
+					stringRec += c + ". " + r.toString() + "\n";
 					aux2++;
 				}
 
 				if (r instanceof Inert) {
 					c = (char) ('a' + aux3);
-					stringIne += c + ". " + r.toString();
+					stringIne += c + ". " + r.toString() + "\n";
 					aux3++;
 				}
+			}
+
+			if (stringBio.equals("||||||||| BIODEGRADABLES: |||||||||\n")) {
+				stringBio += "\n******* Aun no registros de este tipo de residuos*******\n\n";
+			}
+			if (stringRec.equals("||||||||| RECICLABLES: |||||||||\n")) {
+				stringRec += "\n******* Aun si registros de este tipo de residuos*******\n\n";
+			}
+			if (stringIne.equals("||||||||| INERTES: |||||||||\n")) {
+				stringIne += "\n******* Aun si registros de este tipo de residuos*******\n\n";
 			}
 			superString = stringBio + "\n\n" + stringRec + "\n\n" + stringIne + "\n\n";
 			System.out.println(superString);
