@@ -3,8 +3,8 @@ package model;
 public class Residue {
 
 	static final String[] ORIGINS = { "Industriales", "Domiciliarios", "Municipales", "Construccion", "Hospitalarios" };
-	
-	private Product theProduct;
+
+	protected Product theProduct;
 
 	protected String id, name, origin, color;
 	protected int wasteTime;
@@ -38,6 +38,12 @@ public class Residue {
 		this.wasteTime = wasteTime;
 		this.theProduct = theProduct;
 
+	}
+
+	public String toString() {
+		return name + " - " + origin + " - " + color + " - " + wasteTime + " dias para descomponerse. " + " - "
+				+ theProduct.getName() + " (Identificador - " + theProduct.getId() + " Descripcion - "
+				+ theProduct.getDescription();
 	}
 
 	public double harmfulEffect() {

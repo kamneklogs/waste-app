@@ -34,5 +34,7 @@ public class Biodegradable extends Residue implements Usable{
         this.composting = composting;
     }
 
+
+
     
 }
