@@ -12,6 +12,18 @@ public class Product{
         myResidues = new ArrayList<Residue>();
     }
 
+    public String listRName(){
+        String listN = "";
+        int i = 1;
+        for (Residue r : myResidues) {
+            
+            listN += " " + i + ". " + r.getName() + ".\n";
+            i++;
+        }
+
+        return listN;
+    }
+
     public String getId() {
         return id;
     }
@@ -39,11 +51,5 @@ public class Product{
     public ArrayList<Residue> getMyResidues() {
         return myResidues;
     }
-
-    public void setMyResidues(ArrayList<Residue> myResidues) {
-        this.myResidues = myResidues;
-    }
-
-    
 
 }
