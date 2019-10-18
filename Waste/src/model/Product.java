@@ -15,6 +15,7 @@ public class Product{
     public Residue[] sortMyResidues(){
 
         Residue[] toSort = null;
+        
 
         if(!(myResidues.isEmpty())){
 

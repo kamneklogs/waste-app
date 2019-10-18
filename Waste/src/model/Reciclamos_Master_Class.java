@@ -1,6 +1,8 @@
 package model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -10,6 +12,7 @@ public class Reciclamos_Master_Class {
 	private ArrayList<Residue> residues;
 	private ArrayList<Product> products;
 	private Random rnd;
+
 
 	public Reciclamos_Master_Class() {
 
@@ -110,7 +113,7 @@ public class Reciclamos_Master_Class {
 	public void listProducts() {
 		String lP = "PRODUCTOS REGISTRADOS:\n\n";
 		int i = 0;
-		// (char) ('a' + aux1);
+	
 		for (Product p : products) {
 			lP += " " + (i+1) + ". " + p.getName() + ".\n";
 			i++;
@@ -177,7 +180,8 @@ public class Reciclamos_Master_Class {
 						System.out.println("Este producto tiene mas de un residuo relacionado, elija uno:\n");
 						System.out.println(products.get(indexProduct).listRName());
 						opt = Integer.parseInt(r.next()) - 1;
-						products.get(indexProduct).getMyResidues().get(opt).toString();
+						System.out.println(products.get(indexProduct).getMyResidues().get(opt).toString());
+						
 					}
 				}
 
