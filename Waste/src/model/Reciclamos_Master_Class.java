@@ -2,6 +2,8 @@ package model;
 
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 public class Reciclamos_Master_Class {
 
 	private Scanner r;
@@ -16,6 +18,17 @@ public class Reciclamos_Master_Class {
 		r = new Scanner(System.in);
 		rnd = new Random();
 
+	}
+
+	public void listProductsResidue() {
+		System.out.println("Elija el producto a consultar sus residuos: \n");
+
+		listProducts();
+
+		int opt = Integer.parseInt(JOptionPane.showInputDialog(null,
+		"", null, 2));
+
+		products.get(opt - 1).showSortedByHarmfulEffect();
 	}
 
 	public void itIsUsable() {
@@ -99,7 +112,7 @@ public class Reciclamos_Master_Class {
 		int i = 0;
 		// (char) ('a' + aux1);
 		for (Product p : products) {
-			lP += " " + (char) ('a' + i) + ". " + p.getName() + ".\n";
+			lP += " " + (i+1) + ". " + p.getName() + ".\n";
 			i++;
 		}
 
@@ -180,7 +193,7 @@ public class Reciclamos_Master_Class {
 	public void addResidue() {
 
 		String id = Integer.toString(rnd.nextInt(10000)), name = "N/E.", color = "N/E.", description = "N/E.",
-				tips = "N/E.";
+				tips = "N/E.", auxS = "";
 		int origin, wasteTime, opt = 0, type, typeResidue, aux = 1;
 		String idP = Integer.toString(rnd.nextInt(10000)), nameP = "N/E.", descriptionP = "N/E.";
 		boolean composting, auxB = false;
@@ -198,14 +211,14 @@ public class Reciclamos_Master_Class {
 			name = r.next();
 			System.out.print("Color: ");
 			color = r.next();
-			System.out.println("Tipo de origen: ");
+			System.out.println("Tipo de origen: \n");
 			aux = 1;
 			for (String s : Residue.ORIGINS) {
 
-				System.out.println(aux + ". " + s);
+				System.out.println(" " + aux + ". " + s);
 				aux++;
 			}
-			r.next();
+			//auxS = r.next();
 			origin = Integer.parseInt(r.next());
 			System.out.print("Tiempo de descomposicion (Numero de dias): ");
 			wasteTime = Integer.parseInt(r.next());
@@ -312,8 +325,9 @@ public class Reciclamos_Master_Class {
 			System.out.println("RESIDUO AGREGADO EXITOSAMENTE");
 
 			System.out.println("\n\nDesea agregar un nuevo residuo?\n\n1. Si.\n2. No.");
-			r.next();
-			opt = r.nextInt();
+			r.skip("");
+			opt = Integer.parseInt(JOptionPane.showInputDialog(null,
+			"", null, 2));
 			auxB = true;
 		} while (opt != 2);
 

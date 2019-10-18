@@ -1,6 +1,6 @@
 package model;
 
-public class Residue {
+public class Residue implements Comparable{
 
 	static final String[] ORIGINS = { "Industriales", "Domiciliarios", "Municipales", "Construccion", "Hospitalarios" };
 
@@ -38,6 +38,22 @@ public class Residue {
 		this.wasteTime = wasteTime;
 		this.theProduct = theProduct;
 
+	}
+
+	public int compareTo(Object o) {
+		
+		Residue aResidue = (Residue)o;
+		if(this.harmfulEffect() > aResidue.harmfulEffect()){
+			return -1;
+		}
+
+		if(this.harmfulEffect() < aResidue.harmfulEffect()){
+
+			return 1;
+
+		}
+
+		return 0;
 	}
 
 	public String toString() {

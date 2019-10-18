@@ -1,5 +1,5 @@
 package model;
-import java.util.ArrayList;
+import java.util.*;
 public class Product{
 
     private String id, name, description;
@@ -11,6 +11,37 @@ public class Product{
         this.description = description;
         myResidues = new ArrayList<Residue>();
     }
+
+    public Residue[] sortMyResidues(){
+
+        Residue[] toSort = null;
+
+        if(!(myResidues.isEmpty())){
+
+            toSort = myResidues.toArray(new Residue[myResidues.size()]);
+
+            Arrays.sort(toSort);
+
+        }
+
+        return toSort;
+    }
+
+
+    public void showSortedByHarmfulEffect(){
+        Residue[] toPrint = sortMyResidues();
+        int aux = 1;
+
+        for (Residue r : toPrint) {
+            System.out.println( " " + aux + ". " + r.getName() + ". Con un efecto nocivo de: " + r.harmfulEffect());
+            aux++;
+        }
+
+        System.out.println("");
+
+    }
+
+    
 
     public String listRName(){
         String listN = "";

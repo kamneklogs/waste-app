@@ -18,13 +18,18 @@ class Reciclamos {
         reciclamosApp.getProducts().add(new Product("321", "banano", "rico en potasio"));
         reciclamosApp.getProducts().get(0).getMyResidues().add(new Biodegradable( "123", "cascara de banano", 2, "amarillo", 12, true, new Product("321", "banano", "rico en potasio")));
 
+
         reciclamosApp.getResidues().add(new Inert("222", "Jeringa", 5, "transparente", 500, "no enfermarse", new Product("333", "paquete de jeringas", "jeringas matasanos")));
         reciclamosApp.getProducts().add(new Product("333", "paquete de jeringas", "jeringas matasanos"));
         reciclamosApp.getProducts().get(1).getMyResidues().add(new Inert("222", "Jeringa", 5, "transparente", 500, "no enfermarse", new Product("333", "paquete de jeringas", "jeringas matasanos")));
 
+        reciclamosApp.getResidues().add(new Inert("259", "etiqueta", 5, "blanco", 32252, "no enfermarse", new Product("333", "paquete de jeringas", "jeringas matasanos")));
+        reciclamosApp.getProducts().get(1).getMyResidues().add(new Inert("259", "etiqueta", 5, "blanco", 32252, "no enfermarse", new Product("333", "paquete de jeringas", "jeringas matasanos")));
+
         reciclamosApp.getResidues().add(new Recyclable("657", "hoja de papel", 2, "blanco", 5, "hoja arrugada", 1, new Product("987", "Cuaderno Norma", "Cuaderno sencillo")));
         reciclamosApp.getProducts().add(new Product("987", "Cuaderno Norma", "Cuaderno sencillo"));
         reciclamosApp.getProducts().get(2).getMyResidues().add(new Recyclable("657", "hoja de papel", 2, "blanco", 5, "hoja arrugada", 1, new Product("987", "Cuaderno Norma", "Cuaderno sencillo")));
+
 
         reciclamosApp.getProducts().add(new Product("749", "fresa", "fresa que no produce residuos relevaltes"));
     }
@@ -67,6 +72,10 @@ class Reciclamos {
 
             case 7:
                 app.reciclamosApp.itIsUsable();
+                break;
+
+            case 8:
+                app.reciclamosApp.listProductsResidue();
                 break;
 
             }
