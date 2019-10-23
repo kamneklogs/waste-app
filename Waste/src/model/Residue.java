@@ -1,6 +1,6 @@
 package model;
 
-public class Residue implements Comparable{
+public class Residue implements Comparable<Object>{
 
 	static final String[] ORIGINS = { "Industriales", "Domiciliarios", "Municipales", "Construccion", "Hospitalarios" };
 

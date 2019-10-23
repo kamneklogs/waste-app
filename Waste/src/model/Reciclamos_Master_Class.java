@@ -13,7 +13,6 @@ public class Reciclamos_Master_Class {
 	private ArrayList<Product> products;
 	private Random rnd;
 
-
 	public Reciclamos_Master_Class() {
 
 		residues = new ArrayList<Residue>();
@@ -28,8 +27,7 @@ public class Reciclamos_Master_Class {
 
 		listProducts();
 
-		int opt = Integer.parseInt(JOptionPane.showInputDialog(null,
-		"", null, 2));
+		int opt = Integer.parseInt(JOptionPane.showInputDialog(null, "", null, 2));
 
 		products.get(opt - 1).showSortedByHarmfulEffect();
 	}
@@ -113,9 +111,9 @@ public class Reciclamos_Master_Class {
 	public void listProducts() {
 		String lP = "PRODUCTOS REGISTRADOS:\n\n";
 		int i = 0;
-	
+
 		for (Product p : products) {
-			lP += " " + (i+1) + ". " + p.getName() + ".\n";
+			lP += " " + (i + 1) + ". " + p.getName() + ".\n";
 			i++;
 		}
 
@@ -181,7 +179,7 @@ public class Reciclamos_Master_Class {
 						System.out.println(products.get(indexProduct).listRName());
 						opt = Integer.parseInt(r.next()) - 1;
 						System.out.println(products.get(indexProduct).getMyResidues().get(opt).toString());
-						
+
 					}
 				}
 
@@ -202,6 +200,7 @@ public class Reciclamos_Master_Class {
 		String idP = Integer.toString(rnd.nextInt(10000)), nameP = "N/E.", descriptionP = "N/E.";
 		boolean composting, auxB = false;
 		Product theProduct = null;
+		System.out.println(auxS);
 
 		System.out.println("Este es el menu para ingresar residuos al sistema.\n\n");
 		do {
@@ -222,7 +221,7 @@ public class Reciclamos_Master_Class {
 				System.out.println(" " + aux + ". " + s);
 				aux++;
 			}
-			//auxS = r.next();
+			// auxS = r.next();
 			origin = Integer.parseInt(r.next());
 			System.out.print("Tiempo de descomposicion (Numero de dias): ");
 			wasteTime = Integer.parseInt(r.next());
@@ -330,8 +329,7 @@ public class Reciclamos_Master_Class {
 
 			System.out.println("\n\nDesea agregar un nuevo residuo?\n\n1. Si.\n2. No.");
 			r.skip("");
-			opt = Integer.parseInt(JOptionPane.showInputDialog(null,
-			"", null, 2));
+			opt = Integer.parseInt(JOptionPane.showInputDialog(null, "", null, 2));
 			auxB = true;
 		} while (opt != 2);
 
@@ -341,9 +339,13 @@ public class Reciclamos_Master_Class {
 		String id = Integer.toString(rnd.nextInt(10000)), name = "N/E.", color = "N/E.", description = "N/E.",
 				tips = "N/E.";
 		int origin, wasteTime, opt = 0, type, typeResidue, aux = 1;
-		String idP = Integer.toString(rnd.nextInt(10000)), nameP = "N/E.", descriptionP = "N/E.";
+		String idP = "", nameP = "", descriptionP = "";
 		boolean composting, auxB = false;
 		Product theProduct = null;
+		System.out.print(idP + nameP + descriptionP);
+		nameP = "N/E.";
+		descriptionP = "N/E.";
+		idP = Integer.toString(rnd.nextInt(10000));
 
 		do {
 			System.out.println("Ingrese los siguientes datos acerca del producto:\n");
