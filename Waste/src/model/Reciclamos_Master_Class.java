@@ -6,6 +6,12 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+/**
+ * This class manages the entire legion
+ * 
+ * @author Camilo Cordoba.
+ * @since 1.0
+ */
 public class Reciclamos_Master_Class {
 
 	private Scanner r;
@@ -22,6 +28,14 @@ public class Reciclamos_Master_Class {
 
 	}
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public void listProductsResidue() {
 		System.out.println("Elija el producto a consultar sus residuos: \n");
 
@@ -32,6 +46,14 @@ public class Reciclamos_Master_Class {
 		products.get(opt - 1).showSortedByHarmfulEffect();
 	}
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public void itIsUsable() {
 		int opt = 0, i = 1;
 		String usable = " El residuo es: ";
@@ -89,6 +111,14 @@ public class Reciclamos_Master_Class {
 
 	}
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public void listResidues() {
 		String lR = "";
 		int i = 1;
@@ -100,6 +130,14 @@ public class Reciclamos_Master_Class {
 		System.out.println(lR);
 	}
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public void harmfulEffect() {
 		int opt = -1;
 		System.out.println("Elija un residuo de la lista:\n");
@@ -108,6 +146,14 @@ public class Reciclamos_Master_Class {
 		System.out.println("El efecto nosivo de este residuo es: " + residues.get(opt).harmfulEffect() + "\n");
 	}
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public void listProducts() {
 		String lP = "PRODUCTOS REGISTRADOS:\n\n";
 		int i = 0;
@@ -124,6 +170,14 @@ public class Reciclamos_Master_Class {
 		System.out.println(lP);
 	}
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public void searchWasteInformation() {
 		int opt = 0;
 		do {
@@ -192,6 +246,14 @@ public class Reciclamos_Master_Class {
 
 	}
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public void addResidue() {
 
 		String id = Integer.toString(rnd.nextInt(10000)), name = "N/E.", color = "N/E.", description = "N/E.",
@@ -335,6 +397,14 @@ public class Reciclamos_Master_Class {
 
 	}
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public void addProduct() {
 		String id = Integer.toString(rnd.nextInt(10000)), name = "N/E.", color = "N/E.", description = "N/E.",
 				tips = "N/E.";
@@ -439,6 +509,14 @@ public class Reciclamos_Master_Class {
 		} while (opt != 2);
 	}
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public void reportResidues() {
 		String stringBio = "||||||||| BIODEGRADABLES: |||||||||\n";
 		String stringRec = "||||||||| RECICLABLES: |||||||||\n";
@@ -486,6 +564,7 @@ public class Reciclamos_Master_Class {
 		}
 	}
 
+	
 	public ArrayList<Residue> getResidues() {
 		return residues;
 	}

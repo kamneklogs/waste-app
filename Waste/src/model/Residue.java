@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * This class manages the entire legion
+ * 
+ * @author Camilo Cordoba.
+ * @since 1.0
+ */
 public class Residue implements Comparable<Object>{
 
 	static final String[] ORIGINS = { "Industriales", "Domiciliarios", "Municipales", "Construccion", "Hospitalarios" };
@@ -40,6 +46,14 @@ public class Residue implements Comparable<Object>{
 
 	}
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public int compareTo(Object o) {
 		
 		Residue aResidue = (Residue)o;
@@ -56,12 +70,28 @@ public class Residue implements Comparable<Object>{
 		return 0;
 	}
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public String toString() {
 		return name + " - " + origin + " - " + color + " - " + wasteTime + " dias para descomponerse. " + " - "
 				+ theProduct.getName() + " (Identificador - " + theProduct.getId() + " Descripcion - "
 				+ theProduct.getDescription();
 	}
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public double harmfulEffect() {
 		double value = 0;
 		switch (origin) {

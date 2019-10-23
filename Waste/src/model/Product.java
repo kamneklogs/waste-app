@@ -1,5 +1,13 @@
 package model;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+/**
+ * This class manages the entire legion
+ * 
+ * @author Camilo Cordoba.
+ * @since 1.0
+ */
 public class Product{
 
     private String id, name, description;
@@ -12,6 +20,14 @@ public class Product{
         myResidues = new ArrayList<Residue>();
     }
 
+    /**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
     public Residue[] sortMyResidues(){
 
         Residue[] toSort = null;
@@ -29,6 +45,14 @@ public class Product{
     }
 
 
+    /**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
     public void showSortedByHarmfulEffect(){
         Residue[] toPrint = sortMyResidues();
         int aux = 1;
@@ -44,6 +68,14 @@ public class Product{
 
     
 
+    /**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
     public String listRName(){
         String listN = "";
         int i = 1;

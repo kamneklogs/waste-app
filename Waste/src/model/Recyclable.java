@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * This class manages the entire legion
+ * 
+ * @author Camilo Cordoba.
+ * @since 1.0
+ */
 public class Recyclable extends Residue implements Usable{
 	
 	static final String[] TYPES = {"Papel", "Carton", "Vidrio", "Plasticos", "Metales"};
@@ -34,6 +40,14 @@ public class Recyclable extends Residue implements Usable{
 
     }
 
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
     public double harmfulEffect(){
         return super.harmfulEffect() - (super.harmfulEffect()*0.02);
     }
@@ -54,7 +68,15 @@ public class Recyclable extends Residue implements Usable{
         this.description = description;
     }
 
-	
+
+	/**
+     * This method return the potition of a archangel searched by name
+     * <b>pre:</b> The param string is a valid string <br>
+     * <b>post:</b> position is found. If not found return -1 <br>
+     * 
+     * @param name is a valid String != null
+     * @return int that containing the required potition
+     */
 	public boolean isUsable() {
 		if(description != null) {
 			return true;
