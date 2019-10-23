@@ -1,7 +1,7 @@
 package model;
 
 /**
- * This class manages the entire legion
+ * This class manages the entire 
  * 
  * @author Camilo Cordoba.
  * @since 1.0
