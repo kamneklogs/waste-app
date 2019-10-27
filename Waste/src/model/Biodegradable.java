@@ -1,7 +1,7 @@
 package model;
 
 /**
- * This class manages the entire 
+ * This class represents the biodegradable residues
  * 
  * @author Camilo Cordoba.
  * @since 1.0

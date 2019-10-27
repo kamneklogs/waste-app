@@ -1,7 +1,7 @@
 package model;
 
 /**
- * This class manages the entire legion
+ * This inteface does something or nothing, i don't know
  * 
  * @author Camilo Cordoba.
  * @since 1.0

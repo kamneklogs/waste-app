@@ -12,6 +12,7 @@ class Reciclamos {
         reciclamosApp = new Reciclamos_Master_Class();
     }
 
+    //Test objects
     public void init(){
         
         reciclamosApp.getResidues().add(new Biodegradable( "123", "cascara de banano", 2, "amarillo", 12, true, new Product("321", "banano", "rico en potasio")));
@@ -44,7 +45,7 @@ class Reciclamos {
         System.out.println("                 BIENVENIDO A RECICLEMOS APP, LA APP AMIGA DEL MEDIO AMBIENTE\n\n");
         do {
             System.out.println(MENU1);
-            optMenu = Integer.parseInt(reader.next());
+            optMenu = reader.nextInt();
             switch (optMenu) {
             case 1:
                 app.reciclamosApp.addResidue();
@@ -82,7 +83,7 @@ class Reciclamos {
 
             System.out.println("0. Cerrar esta grandiosa app\n1. Volver al menu principal\n");
 
-            optMenu = Integer.parseInt(reader.next());
+            optMenu = reader.nextInt();
 
         } while (optMenu == 1);
         reader.close();

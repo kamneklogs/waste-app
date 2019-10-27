@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * This class manages the entire legion
+ * This class represents the products
  * 
  * @author Camilo Cordoba.
  * @since 1.0
